@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Such Wallet!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding
+  <div class="balance">
+    <h1>{{balance}}</h1>
+    <h3>({{conversionSymbol}}{{convertedBalance}}) {{conversionCurrency}}</h3>
+  </div>
+  <ion-list>
+    <ion-list-header>Transactions</ion-list-header>
+    <button ion-item *ngFor="let tx of txs" (click)="txTapped(item)">
+      <ion-icon *ngIf="tx.type === 'sent'" name="paper-plane" item-start></ion-icon>
+      <ion-icon *ngIf="tx.type === 'received'" name="undo" item-start></ion-icon>
+        {{tx.amount}} DOGE
+      <ion-note item-end>
+        {{tx.address}}...
+      </ion-note>
+    </button>
+  </ion-list>
+</ion-content>
