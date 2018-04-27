@@ -3,16 +3,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Such Wallet!</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content padding
+  <div class="balance">
+    <h1>{{balance}}</h1>
+    <h3>({{conversionSymbol}}{{convertedBalance}}) {{conversionCurrency}}</h3>
+  </div>
+  <ion-list>
+    <ion-list-header>Transactions</ion-list-header>
+    <button ion-item *ngFor="let tx of txs" (click)="txTapped(item)">
+      <ion-icon *ngIf="tx.type === 'sent'" name="paper-plane" item-start></ion-icon>
+      <ion-icon *ngIf="tx.type === 'received'" name="undo" item-start></ion-icon>
+        {{tx.amount}} DOGE
+      <ion-note item-end>
+        {{tx.address}}...
+      </ion-note>
+    </button>
+  </ion-list>
 </ion-content>
