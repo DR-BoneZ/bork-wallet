@@ -3,15 +3,18 @@ module Crypto.HDTree.Bip39 (
     Entropy
 ) where
 
-import Control.Monad.Eff.Random
-import Basement.Types.Word256
-import Crypto.Simple
+import Prelude
+import Control.Monad.Eff.Random.Secure (randomBytes, ENTROPY)
+import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Exception (EXCEPTION)
+import Basement.Types.Word256 as W
+import Data.ByteString as BS
 
-type Entropy = Word256
-type MneumonicBits = Word256
+type Entropy = W.Word256
+type MneumonicBits = W.Word256
 
-entropy :: Entropy
-entropy = randomBytes 16
+--entropy :: Eff () Entropy
+entropy = map W.fromByteString (randomBytes 32)
 
 --mneumonicBits :: Entropy -> MneumonicBits
 --mneumonicBits e =  e, shiftR 252 <<< (hash SHA256 e) }
