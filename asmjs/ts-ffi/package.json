@@ -1,0 +1,21 @@
+{
+  "name": "such-wallet-ffi",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Aiden McClelland",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm *.js && rm *.js.map"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.61",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.8.3"
+  }
+}
