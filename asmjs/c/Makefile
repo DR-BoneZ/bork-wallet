@@ -8,7 +8,7 @@ all : ffi.js
 	cp ffi.js ../ts-ffi/ffi.js
 
 ffi.js : ${OBJECTS}
-	${EMCC} ${OBJECTS} -o ffi.js -s EXPORTED_FUNCTIONS='["_entropyToSeed"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
+	${EMCC} ${OBJECTS} -o ffi.js -s EXPORTED_FUNCTIONS='["_getMneumonicPhrase"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
 
 %.bc : %.c
 	${EMCC} $< -o $@
